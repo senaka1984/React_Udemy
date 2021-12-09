@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ExpenseItem from './components/Expenses/ExpenseItem';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense'
 
 const App = () => {
+
+  let titl = 'initial';
+  const [title, setTitle] = useState(titl);
 
   const expensesdata = [
     {
@@ -35,11 +39,22 @@ const App = () => {
   //   React.createElement(Expenses, { expenses: expensesdata })
   // );
 
+  const changeTitle = () => {
+    setTitle('updated');
+
+
+  }
+
+  const addExpenseHandler = expense => {
+    console.log('In App js');
+    console.log(expense);
+  }
 
   return (
     <div>
-      <h2>lets get started</h2>
+      <NewExpense onAddNewExpense={addExpenseHandler} />
       <Expenses expenses={expensesdata} />
+      <button onClick={changeTitle}>update all</button>
     </div>
 
   );
