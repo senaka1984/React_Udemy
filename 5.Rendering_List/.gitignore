@@ -1,0 +1,7 @@
+node_modules
+coverage
+build/
+junit.xml
+.DS_Store
+false
+.env.local
